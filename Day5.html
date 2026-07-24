@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 5 JavaScript</title>
+
+    <style>
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Contact Form</h1>
+
+    <button id="darkBtn">Dark Mode</button>
+
+    <form id="contactForm">
+        <br><br>
+        <input id="name" type="text" placeholder="Name"><br><br>
+
+        <input id="email" type="email" placeholder="Email"><br><br>
+
+        <textarea id="message" placeholder="Message"></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="success"></p>
+
+    <script>
+        document.getElementById("darkBtn").onclick = function() {
+            document.body.classList.toggle("dark-mode");
+        };
+        document.getElementById("contactForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            if (name == "" || email == "" || message == "") {
+                alert("Please fill all fields");
+            } else {
+                document.getElementById("success").innerHTML =
+                    "Form submitted successfully!";
+            }
+        };
+    </script>
+
+</body>
+      </html>
